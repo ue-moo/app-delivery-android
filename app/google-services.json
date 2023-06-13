@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "620106647696",
+    "project_id": "app-delivery-67c36",
+    "storage_bucket": "app-delivery-67c36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620106647696:android:7eae0418a418b618dbb015",
+        "android_client_info": {
+          "package_name": "com.github.uemoo.appdelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620106647696-g0ehjm2du5534fdogeb7ip3p4gi71loc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-SozolyB4Gn-q7m68nko-uc0_4jVKjuw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620106647696-g0ehjm2du5534fdogeb7ip3p4gi71loc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
