@@ -3,6 +3,7 @@ package com.github.uemoo.appdelivery
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
@@ -34,10 +35,30 @@ import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
 class MainActivity : ComponentActivity() {
+
+    private val viewModel by viewModels<MainViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             AppDeliveryTheme {
+                val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+                when (val data = uiState) {
+                    UiState.Loading -> {
+                        print("XXX uiState Loading...")
+                    }
+
+                    is UiState.Data -> {
+                        print("XXX uiState ${data.count1}, ${data.count2}")
+                    }
+                }
+
+                LaunchedEffect(Unit) {
+                    viewModel.action()
+                    viewModel.action2()
+                }
+
                 val value by (flow {
                     repeat(Int.MAX_VALUE) {
                         emit(it.toString())
@@ -63,7 +84,7 @@ class MainActivity : ComponentActivity() {
                 }
 
                 SideEffect {
-                    println("XXX SideEffect")
+                    println("XXX Recompose")
                 }
 
                 val (check, setCheck) = remember { mutableStateOf(false) }
